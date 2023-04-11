@@ -9,10 +9,6 @@ import ParticlesBg from 'particles-bg';
 import './App.css';
 
 
-
-
-
-
 const initialState = {
   input: '',
   imageUrl: '',
@@ -86,7 +82,7 @@ displayFaceBox = (box) => {
 
   onButtonSubmit = () => { 
     this.setState({imageUrl: this.state.input})
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://whispering-spire-25106.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -95,7 +91,7 @@ displayFaceBox = (box) => {
     })
      .then(response => response.json())
       .then(response => {
-        fetch('http://localhost:3000/image', {
+        fetch('https://whispering-spire-25106.herokuapp.com/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
